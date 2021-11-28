@@ -16,7 +16,9 @@ import { Route, BrowserRouter, Switch } from "react-router-dom";
 import Users from "./components/Users";
 import { IconContext } from "react-icons/lib";
 import Createuser from "./components/Createuser";
+import ViewUser from "./components/ViewUser";
 
+let apiURL = "https://6188e783d0821900178d75f4.mockapi.io/api/v1/user";
 const routing = (
   // Parent for all the routes
   <BrowserRouter>
@@ -30,15 +32,9 @@ const routing = (
       </NavbarBrand>
       <Collapse navbar>
         <Nav className="me-auto" navbar>
-          <NavLink href="/" dark>
-            Home
-          </NavLink>
-          <NavLink href="/users" dark>
-            Users
-          </NavLink>
-          <NavLink href="/create-user" dark>
-            Create User
-          </NavLink>
+          <NavLink href="/">Home</NavLink>
+          <NavLink href="/users">Users</NavLink>
+          <NavLink href="/create-user">Create User</NavLink>
         </Nav>
         <NavbarText>
           <form className="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
@@ -64,8 +60,13 @@ const routing = (
 
     <Switch>
       <Route exact path="/" component={App} />
-      <Route exact path="/users" component={Users} />
+      <Route exact path="/users">
+        <Users apiURL={apiURL} />
+      </Route>
       <Route exact path="/create-user" component={Createuser} />
+      <Route exact path="/user/:id">
+        <ViewUser apiURL={apiURL} />
+      </Route>
     </Switch>
   </BrowserRouter>
 );
