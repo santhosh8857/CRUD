@@ -1,7 +1,7 @@
 import "./App.css";
 
-function App() {
-  return <div className="App">App Component</div>;
-}
+const App = () => {
+  return <div className="App">Main dashboard</div>;
+};
 
 export default App;
