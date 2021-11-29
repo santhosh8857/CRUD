@@ -35,6 +35,10 @@ const Users = ({ apiURL }) => {
     }
   };
 
+  const editUser = (id) => {
+    history.push(`user/edit-user/${id}`);
+  };
+
   return (
     <>
       <Table>
@@ -72,7 +76,14 @@ const Users = ({ apiURL }) => {
                   >
                     Delete
                   </button>
-                  <button className="btn btn-outline-warning">Update</button>
+                  <button
+                    className="btn btn-outline-warning"
+                    onClick={() => {
+                      editUser(user.id);
+                    }}
+                  >
+                    Update
+                  </button>
                 </td>
               </tr>
             );
