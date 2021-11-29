@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import ViewCard from "./cards/ViewCard";
 
 const ViewUser = ({ apiURL }) => {
   // useParams hook to take the id from the URl query
@@ -17,9 +18,7 @@ const ViewUser = ({ apiURL }) => {
   }, [apiURL, id]);
   return (
     <>
-      <h1>{user.name}</h1>
-      <h1>{user.email_id}</h1>
-      <h1>{user.mobile_no}</h1>
+      <ViewCard user={user} />
     </>
   );
 };

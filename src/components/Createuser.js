@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
+import { useHistory } from "react-router";
 
 const Createuser = ({ apiURL }) => {
+  const history = useHistory();
+
   // states to store the required details
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -26,6 +29,8 @@ const Createuser = ({ apiURL }) => {
     setName("");
     setEmail("");
     setMobile("");
+
+    history.push("/users");
 
     e.preventDefault();
   };
