@@ -63,7 +63,9 @@ const routing = (
       <Route exact path="/users">
         <Users apiURL={apiURL} />
       </Route>
-      <Route exact path="/create-user" component={Createuser} />
+      <Route exact path="/create-user">
+        <Createuser apiURL={apiURL} />
+      </Route>
       <Route exact path="/user/:id">
         <ViewUser apiURL={apiURL} />
       </Route>
