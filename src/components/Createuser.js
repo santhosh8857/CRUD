@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
+
 const Createuser = ({ apiURL }) => {
+  // states to store the required details
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("");
 
+  // function to handle the form submite and creating a new user in the API using post
   const handleSubmit = (e) => {
     axios
       .post(apiURL, {
@@ -19,6 +22,7 @@ const Createuser = ({ apiURL }) => {
       })
       .catch((err) => console.log(err));
 
+    // once the data are added, values are resetted to empty
     setName("");
     setEmail("");
     setMobile("");

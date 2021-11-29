@@ -5,9 +5,12 @@ import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import { useHistory } from "react-router";
 
 const EditUser = ({ apiURL }) => {
+  // useParams hook to take the id from the URl query
   const { id } = useParams();
 
   const history = useHistory();
+
+  // state object to store the user details from the API
   const [userDetails, setUserDetails] = useState({
     name: "",
     email_id: "",
@@ -15,15 +18,18 @@ const EditUser = ({ apiURL }) => {
     id: "",
   });
 
+  // destructuring the required data from the state
   const { name, email_id, mobile_no } = userDetails;
 
+  // fetching the details from the API using ID
   useEffect(() => {
     fetch(`${apiURL}/${id}`)
       .then((resp) => resp.json())
       .then((data) => setUserDetails(data))
       .catch((err) => console.log(err));
-  }, []);
+  }, [apiURL, id]);
 
+  // function to handle the form submit and updating the details to the API
   const handleSubmit = (e) => {
     userDetails.id = id;
     axios
@@ -35,6 +41,7 @@ const EditUser = ({ apiURL }) => {
     e.preventDefault();
   };
 
+  // function to capture the entered details in the FORM
   const handleChange = (e) => {
     e.preventDefault();
     setUserDetails({ ...userDetails, [e.target.name]: e.target.value });

@@ -3,14 +3,7 @@ import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 import App from "./App";
-import {
-  Collapse,
-  Nav,
-  Navbar,
-  NavbarBrand,
-  NavbarText,
-  NavLink,
-} from "reactstrap";
+import { Collapse, Nav, Navbar, NavbarBrand, NavLink } from "reactstrap";
 import { FaLaptopCode } from "react-icons/fa";
 import { Route, BrowserRouter, Switch } from "react-router-dom";
 import Users from "./components/Users";
@@ -26,6 +19,7 @@ const routing = (
     <Navbar color="light" expand="md" light>
       <NavbarBrand href="/">
         <h2>
+          {/* IconContext is used to provide color to the react icon */}
           <IconContext.Provider value={{ color: "blue" }}>
             <FaLaptopCode className="primary" />
           </IconContext.Provider>
